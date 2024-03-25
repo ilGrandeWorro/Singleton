@@ -1,18 +1,23 @@
 package src;
 
 public class User {
-    private String name;
-    private int age;
+    private static User user;
+
+    public static User getUser() {
+        if (user == null) {
+            user = new User("Unregistered user",0);
+        }
+        return user;
+    }
+
+    private static String name;
+    private static int age;
 
     public String getName() {
-        if (name == null) {
-            name = "User";
-        }
         return name;
     }
 
     public int getAge() {
-
         return age;
     }
 
@@ -21,6 +26,11 @@ public class User {
     }
 
     public void setAge(int age) {
+        this.age = age;
+    }
+
+    private User(String name, int age) {
+        this.name = name;
         this.age = age;
     }
 
